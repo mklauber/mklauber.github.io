@@ -3,6 +3,7 @@ layout: post
 title: "An Event System in one line of Python"
 date:   2015-10-13 16:41:27
 categories: patterns game-dev
+excerpt: "Just wanted to jot down here something that I found very clever.  Using a couple datastructures from the python standard libary, and a little known fact about functions in python, it's possible to build an event system in a single line of code."
 ---
 
 <p class="aside" markdown="1">This pattern is called "Observer".  It's very old, I'm just pleased with how simple it is to implement using python's builtin structures.  You can learn more about it [here](http://gameprogrammingpatterns.com/observer.html).</p>
