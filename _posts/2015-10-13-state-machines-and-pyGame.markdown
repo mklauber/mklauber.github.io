@@ -3,7 +3,7 @@
 layout: post
 title: "Control your UI with State Machines"
 date:   2015-10-13 13:14:27
-categories: hoplite game-dev
+tags: hoplite game-dev
 ---
 Managing the various screens and menus of your UI can be greatly simplified by using a Finite State Machine(FSM) to control the flow of the UI.  FSMs are easy to model and work very well for modeling the flow of a user's action throughout a game.  Furthermore, they compartmentalize code specific to each screen, making it simpler to reason about changes to any specific screen.
 <!--more-->
