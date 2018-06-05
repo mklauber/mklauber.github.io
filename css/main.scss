@@ -57,3 +57,14 @@ $on-laptop:        800px;
     padding: 5px;
 }
 
+
+pre.lineno {
+    overflow-x: visible;
+    border: none;
+}
+
+
+.code>pre {
+    border: none;
+    overflow-x: visible;
+}
