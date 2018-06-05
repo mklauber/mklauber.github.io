@@ -1,0 +1,14 @@
+<li>
+	<span class="post-meta">
+		{{ post.date | date: "%b %-d, %Y" }}
+		{% if post.tags %} • {% for tag in post.tags %}
+				<a class="post-meta" href="/tag/{{ tag }}.html">{{ tag }}</a>
+		{% endfor %}{% endif %}
+	</span>
+
+
+	<h2>
+		<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+	</h2>
+	{{ post.excerpt }}
+</li>

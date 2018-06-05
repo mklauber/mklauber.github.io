@@ -5,12 +5,6 @@ layout: page
 <ul class="post-list">
 
 	{% for post in site.tags[page.tag] %}
-		<li>
-			<span class="post-meta">{{ post.date  | date_to_string }}</span>
-
-			<h2>
-				<a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
-			</h2>
-			{{ post.excerpt }}
+		{% include snippet.html %}
 	{% endfor %}
 </ul>
