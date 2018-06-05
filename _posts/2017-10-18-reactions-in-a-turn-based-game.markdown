@@ -45,7 +45,7 @@ Now the important thing to notice here, is that the user is only responsible for
 other action is a reaction.  So our engine needs to calculate all the reactions.  So our engine starts to get more
 complicated.
 
-{% highlight python %}
+{% highlight python linenos %}
 class Engine(object):
     def next_turn(self):
         actor = self.get_next_actor()
