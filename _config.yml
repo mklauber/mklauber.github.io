@@ -9,7 +9,7 @@ github_username:  mklauber
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 exerpt_separator: <!--more-->
 
 category_names:
