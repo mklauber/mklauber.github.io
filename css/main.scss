@@ -51,7 +51,8 @@ $on-laptop:        800px;
 .aside{
     position:absolute;
     left: calc(#{$content-width} - #{$spacing-unit} + 5px);
-    border-left: solid 2px #e0dcbf;
+    border: solid 5px $background-color;
+    border-left: solid 5px #e2b500;
     background-color: #fff8dc;
     padding: 5px;
 }

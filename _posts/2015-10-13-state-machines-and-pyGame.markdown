@@ -4,6 +4,7 @@ layout: post
 title: "Control your UI with State Machines"
 date:   2015-10-13 13:14:27
 tags: hoplite game-dev
+author: mklauber
 ---
 Managing the various screens and menus of your UI can be greatly simplified by using a Finite State Machine(FSM) to control the flow of the UI.  FSMs are easy to model and work very well for modeling the flow of a user's action throughout a game.  Furthermore, they compartmentalize code specific to each screen, making it simpler to reason about changes to any specific screen.
 <!--more-->
@@ -14,13 +15,13 @@ Let's start with a simple example.  You're going to write a game of asteroids.  
 {% highlight python linenos %}
 def title_screen(screen, input):
     while True:
-        
+
         # Paint the screen
         screen.clear()
         screen.put_text("start new game", 0,0)
         screen.put_text("load game", 10,0)
         screen.put_text("view high scores", 20,0)
-        
+
         # Handle input
         for key in input: # input is a queue of events from the UI library.
             if key == "S":
@@ -79,13 +80,13 @@ Can you see the memory leak in here?  Every time you switch screens, you end up 
 {% highlight python linenos %}
 def title_screen(screen, input):
     while True:
-        
+
         # Paint the screen
         screen.clear()
         screen.put_text("start new game", 0,0)
         screen.put_text("load game", 10,0)
         screen.put_text("view high scores", 20,0)
-        
+
         # Handle input
         for key in input: # input is a queue of events from the UI library.
             if key == "S":
@@ -144,7 +145,7 @@ Do you see what we did there?  Instead of calling the new screen from the old sc
 class GameScreen(object):
     def __init__(self, game):
         self.game = game
-        
+
     def execute(screen, input):
         while True:
             screen.clear()
@@ -160,8 +161,8 @@ class GameScreen(object):
                     global.high_score = score
                     return HighscoreScreen()
                 else:
-                    return TitleScreen() 
-                    
+                    return TitleScreen()
+
 if __name__ == '__main__':
     cur_scr = TitleScreen()
     while cur_scr != None:
@@ -191,8 +192,8 @@ def game_screen(game):
                     return highscore_screen
                 else:
                     return title_screen
-                
-                
+
+
     return screen
 
 {% endhighlight %}
@@ -200,26 +201,3 @@ def game_screen(game):
 Now, on line 8, if we press "H" during gameplay, we invoke `highscore_screen` right there in the middle of `game_screen`, and use the stack to return to exactly the same place in the game we were before the "H" key was pressed.  The game can then continue, and we've managed to track exactly where we came from before we went to the highscore screen.
 
 Thus, we've got a few great tools
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
