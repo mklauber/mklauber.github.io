@@ -4,6 +4,9 @@ layout: page
 
 <ul class="post-list">
 
+{{ content }}
+
+
 	{% for post in site.tags[page.tag] %}
 		{% include snippet.html %}
 	{% endfor %}
