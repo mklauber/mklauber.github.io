@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Implementing Reactions in Hoplite"
-date:   2015-10-13 16:41:27
+date:   2018-06-06 16:41:27
 tags: patterns game-dev hoplite
 ---
 In most turn based games, each actor gets to take a single action on their turn.  So the game loop is pretty simple.

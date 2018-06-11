@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "An Event System in one line of Python"
-date:   2015-10-13 16:41:27
+date:   2015-10-14 16:41:27
 tags: patterns game-dev
 excerpt: "Just wanted to jot down here something that I found very clever.  Using a couple datastructures from the python standard libary, and a little known fact about functions in python, it's possible to build an event system in a single line of code."
 ---
@@ -24,7 +24,7 @@ It also has a convienence datatype known as a `defaultdict`.  A `defaultdict` wh
 >>> d[2] = 14
 >>> d[2]
 14
->>> 
+>>>
 {% endhighlight %}
 
 As you can see in that example, if we try to access a key before it's assigned, we'll get back the result of calling the function passed to the constructor of `defaultdict`.  If we assign to a key, that value is updated, and will be returned in future instead.  
@@ -68,26 +68,26 @@ But the important fact about python that makes all this work is that a fuction i
 >>> listeners = defaultdict(set)
 >>> def handle_test(arg):
 ...  print arg
-... 
+...
 >>> listeners['test'].add(handle_test)
 >>> for listener in listeners['test']:
 ...  listener('Hi')
-... 
+...
 Hi
 >>> listeners['test'].add(handle_test)
 >>> for listener in listeners['test']:
 ...  listener('Hi')
-... 
+...
 Hi
 >>> for listener in listeners['bad']:
 ...  listener('Hi')
-... 
+...
 >>> listeners['test'].discard(handle_test)
->>> 
+>>>
 >>> for listener in listeners['bad']:
 ...  listener('Hi')
-... 
->>> 
+...
+>>>
 {% endhighlight %}
 
 That's a single data structure where you just add the listener for an event.  If there aren't any listeners yet, it'll create the set for you.  If you've already added this listener, it will ensure it's only present once.  And since python's `set.discard` method does nothing if the argument isn't in the set, you can remove handlers as many times as you want too.  
@@ -97,7 +97,3 @@ As a warning, be careful having events trigger other events, it's quite easy to 
 </p>
 
 Now, emitting a message does require two lines and a for..in loop, but honestly, that doesn't bother me that much.  It's possible to subclass `defaultdict` to add a `emit` method, but honestly, I find that tends to clutter up the stack trace if your code emits a lot of events, especially if events trigger other events.  
-
-
-
-

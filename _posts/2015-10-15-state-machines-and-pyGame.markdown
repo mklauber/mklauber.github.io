@@ -2,7 +2,7 @@
 
 layout: post
 title: "Control your UI with State Machines"
-date:   2015-10-13 13:14:27
+date:   2015-10-15 13:14:27
 tags: hoplite game-dev
 author: mklauber
 ---
